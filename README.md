@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FlyRankAI Signal Orb
+
+An interactive 3D browser experience for FE-AA2. The overview route stages a procedural low-poly signal orb in React Three Fiber. Drag the scene to orbit, move the pointer to nudge the object, switch its material surface, and pause or resume its rotation.
+
+## Performance note
+
+The scene creates its geometry in code, so it ships with no model download or texture payload (`0 kb` external model data). The WebGL canvas is lazy-loaded on the client, caps device pixel ratio at `1.5`, uses a small procedural scene, and falls back to a static CSS preview for reduced-motion and low-memory devices. The scene targets a steady 60 FPS on desktop and avoids heavy post-processing on mobile.
+
+## What I would add next
+
+I would connect the orb surfaces to live campaign metrics, add a compressed GLB detail layer for product-specific storytelling, and capture a real-device frame-time profile across the mobile breakpoints.
+
+## Getting Started
 
 ## Getting Started
 
@@ -15,6 +27,16 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+For local HTTPS, run:
+
+```bash
+npm run dev:https
+```
+
+Then open [https://localhost:3000](https://localhost:3000). Next.js generates a local self-signed certificate, so your browser will show a certificate warning that you can accept for development. To use another port, run `npm run dev:https -- -p 3443` and open `https://localhost:3443`.
+
+To access the development server from another device on the same network, use the computer's local IPv4 address, such as `https://192.168.1.25:3000`. Allow Node.js through Windows Firewall if the device cannot connect, and accept the self-signed certificate warning on that device.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
